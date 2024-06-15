@@ -6,16 +6,16 @@
 def minOperations(n: int) -> int:
     """ Minimum Operations """
     next = 'H'
-    bdy = 'H'
+    body = 'H'
     op = 0
-    while (len(bdy) < n):
-        if n % len(bdy) == 0:
+    while (len(body) < n):
+        if n % len(body) == 0:
             op += 2
-            next = bdy
-            bobdydy += bdy
+            next = body
+            body += body
         else:
             op += 1
-            bdy += next
-    if len(bdy) != n:
+            body += next
+    if len(body) != n:
         return 0
     return op
