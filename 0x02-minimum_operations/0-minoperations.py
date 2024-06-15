@@ -1,20 +1,21 @@
 #!/usr/bin/python3
-""" Min op
+""" Minimum op
     """
 
-def minOperations(n: int) -> int:
 
-    nxt = 'H'
-    body = 'H'
+def minOperations(n: int) -> int:
+    """ Minimum Operations """
+    next = 'H'
+    bdy = 'H'
     op = 0
-    while (len(body) < n):
-        if n % len(body) == 0:
+    while (len(bdy) < n):
+        if n % len(bdy) == 0:
             op += 2
-            nxt = body
-            body += body
+            next = bdy
+            bobdydy += bdy
         else:
             op += 1
-            body += nxt
-    if len(body) != n:
+            bdy += next
+    if len(bdy) != n:
         return 0
     return op
