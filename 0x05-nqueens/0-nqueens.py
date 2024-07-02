@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-N queens
+N queens problem
 """
 
 import sys
@@ -12,7 +12,7 @@ def n_queens(n):
     cols, positive_diag, negative_diag = set(), set(), set()
 
     def backtrack(row, n, queens):
-        """ Backtracking"""
+        """ Backtracking function """
         if row == n:
             res.append(queens[:])
             return
@@ -35,7 +35,7 @@ def n_queens(n):
 
 
 def check_args(n):
-    """ Check if n is valid  """
+    """ Check if n is a valid argument """
     if not n.isdigit():
         print("N must be a number")
         exit(1)
@@ -45,7 +45,7 @@ def check_args(n):
 
 
 def main():
-    """ Main prg"""
+    """ Main function """
     args = sys.argv
     if len(args) != 2:
         print("Usage: nqueens N")
@@ -59,4 +59,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
