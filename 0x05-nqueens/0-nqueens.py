@@ -1,14 +1,12 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 """
-Solution to the nqueens problem
+Solution of the nqueens
 """
 import sys
 
 
 def backtrack(r, n, cols, pos, neg, board):
-    """
-    backtrack function to find solution
-    """
+
     if r == n:
         res = []
         for l in range(len(board)):
@@ -38,11 +36,6 @@ def backtrack(r, n, cols, pos, neg, board):
 def nqueens(n):
     """
     Solution to nqueens problem
-    Args:
-        n (int): number of queens. Must be >= 4
-    Return:
-        List of lists representing coordinates of each
-        queen for all possible solutions
     """
     cols = set()
     pos_diag = set()
