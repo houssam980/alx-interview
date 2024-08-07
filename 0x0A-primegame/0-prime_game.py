@@ -1,37 +1,40 @@
 #!/usr/bin/python3
 """
-prime game
+isWinner module
 """
 
 
 def primeNumbers(n):
-    """Return list of prime
-    """
-    primeNos = []
-    filtered = [True] * (n + 1)
-    for prime in range(2, n + 1):
-        if (filtered[prime]):
-            primeNos.append(prime)
-            for i in range(prime, n + 1, prime):
-                filtered[i] = False
-    return primeNos
+    """return array of prime"""
+    result = []
+    prime = [True for i in range(n+1)]
+    p = 2
+    while (p * p <= n):
+        if (prime[p] is True):
+            for i in range(p * p, n+1, p):
+                prime[i] = False
+        p += 1
+    for p in range(2, n+1):
+        if prime[p]:
+            result.append(p)
+    return result
 
 
 def isWinner(x, nums):
+    """Maria and Ben are playing
     """
-    Determine winner
-    """
-    if x is None or nums is None or x == 0 or nums == []:
+
+    if x != len(nums):
         return None
-    Maria = Ben = 0
-    for i in range(x):
-        primeNos = primeNumbers(nums[i])
-        if len(primeNos) % 2 == 0:
+
+    Ben = 0
+    Maria = 0
+
+    for num in nums:
+        primes = primeNumbers(num)
+        if len(primes) % 2 == 0:
             Ben += 1
         else:
             Maria += 1
-    if Maria > Ben:
-        return 'Maria'
-    elif Ben > Maria:
-        return 'Ben'
-    return None
+
+    return "Ben" if Ben > Maria else "Maria"
